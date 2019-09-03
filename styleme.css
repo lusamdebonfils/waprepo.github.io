@@ -20,7 +20,24 @@ span{
     color: black;
     background-color: papayawhip;
 }
-.moode>img{
+.moods > img{
     height: 200px;
     width: 200px;
 }
+dl{
+    background-color: azure;
+    color: black;
+}
+ol>li>dl{
+    display: none;
+}
+
+ol>li:hover > dl{
+    display: block;
+}
+
+.fav_movies{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
