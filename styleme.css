@@ -1,0 +1,18 @@
+.container{
+    /* text-align: center; */
+    font-family: 'Maven Pro', sans-serif;
+    background-color: dimgray;
+    color: whitesmoke;
+
+}
+
+h1,h3 {
+    color: cornflowerblue;
+}
+a{
+    color: red;
+}
+
+span{
+    color: yellow;
+}
