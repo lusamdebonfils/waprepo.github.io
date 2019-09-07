@@ -73,6 +73,27 @@ function filterLongWords(testArray,testLength){
         return elem.length > testLength;});
     return result;
 }
+     function multipliedBy10(a){
+        const result =  a.map(function(elem) {
+            return elem * 10;
+          });
+          return result;
+     }
+     function equalToThree(a){
+        const result =  a.filter(function(elem) {
+            return elem == 3;
+          });
+          return result;
+     }
+
+     function productOfArray(a){
+        var total = 1;
+        const result =  a.reduce(function(total,ele) {
+            return total = total * ele;
+          });
+          return result;
+     }
+
 
 function myTestResults(){
     console.log("Expected output of max() is 9  " + myFunctionTest(9, function () {
@@ -101,6 +122,19 @@ function myTestResults(){
         return filterLongWords(['boy','King','jakaata','kiki'],5);
     }));
 
+    console.log("Expected output of multipliedBy10() is 10,20,30  " + myFunctionTest([10,20,30], function () {
+        return multipliedBy10([1,2,3]);
+    }));
+
+    console.log("Expected output of equalToThree() is 3,3.0  " + myFunctionTest([3,3.0], function () {
+        return equalToThree([1,2,3,9,3.0]);
+    }));
+
+    console.log("Expected output of productOfArray() is 6 " + myFunctionTest(6, function () {
+        return productOfArray([1,2,3]);
+    }));
+    
+    
 }
 
 myTestResults();
