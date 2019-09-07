@@ -111,7 +111,7 @@ function myTestResults(){
     console.log("Expected output of multiply() is 18  " + myFunctionTest(18, function () {
         return multiply([2,9]);
     }));
-    console.log("Expected output of reverse() is yob  " + myFunctionTest('yodb', function () {
+    console.log("Expected output of reverse() is yob  " + myFunctionTest('yob', function () {
         return reverse('boy');
     }));
     console.log("Expected output of findLongestWord() is jakaata  " + myFunctionTest('jakaata', function () {
