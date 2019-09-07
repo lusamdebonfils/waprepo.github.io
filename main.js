@@ -31,7 +31,7 @@ function maxOfThree(x,y,z){
 }
 
 function isVowel(testChar){
-    let vowels = AEIOU;
+    let vowels = 'AEIOU';
     let testingforCaps = vowels.toLowerCase();
     return ((vowels.indexOf(testChar) > -1) ||  (testingforCaps.indexOf(testChar)>-1));
 }
@@ -72,3 +72,40 @@ function findLongestWord(testArray){
     }
     return max;
 }
+
+function filterLongWords(testArray,testLength){
+    const result = testArray.filter(function(testLength){
+        return testArray.length>testLength;});
+    return result;
+}
+
+function myTestResults(){
+    console.log("Expected output of max() is 9  " + myFunctionTest(9, function () {
+        return max(2,9);
+    }));
+    console.log("Expected output of maxOfThree() is 9  " + myFunctionTest(9, function () {
+        return maxOfThree(2,9,8);
+    }));
+    console.log("Expected output of isVowel() is true  " + myFunctionTest(true, function () {
+        return isVowel('a');
+    }));
+    console.log("Expected output of sum() is 18  " + myFunctionTest(18, function () {
+        return sum([4,5,9]);
+    }));
+    console.log("Expected output of multiply() is 18  " + myFunctionTest(18, function () {
+        return multiply([2,9]);
+    }));
+    console.log("Expected output of reverse() is yob  " + myFunctionTest('yodb', function () {
+        return reverse('boy');
+    }));
+    console.log("Expected output of findLongestWord() is yob  " + myFunctionTest('jakaata', function () {
+        return findLongestWord(['boy','King','jakaata','kiki']);
+    }));
+    
+    console.log("Expected output of filterLongWords() is yob  " + myFunctionTest(['jakaata','boy'], function () {
+        return filterLongWords(['boy','King','jakaata','kiki'],4);
+    }));
+}
+
+myTestResults();
+
