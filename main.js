@@ -1,3 +1,5 @@
+
+
 function myFunctionTest(expected, function2test) {
     let result = function2test();
 
@@ -13,13 +15,6 @@ function myFunctionTest(expected, function2test) {
         return "TEST FAILED.  Expected " + expected + " found " + function2test();
     }
 }
-
-function myarr(){
-    return [1,1];
- }
- console.log("Expected output of myarr() is 40  " + myFunctionTest([1,1], function () {
-     return myarr();
- }));
 
 function max(x,y){
     return x>=y?x:y;
@@ -56,7 +51,7 @@ function reverse(word){
     let len = word.length;
     if(len === 1 || len === 0) return word;
     let result = null;
-    for(let i = len-1; i >=0; i++){
+    for(let i = len-1; i>=0; i--){
         result = result + word[i];
     }
     return result;
@@ -74,8 +69,8 @@ function findLongestWord(testArray){
 }
 
 function filterLongWords(testArray,testLength){
-    const result = testArray.filter(function(testLength){
-        return testArray.length>testLength;});
+    let result = testArray.filter(function(elem){
+        return elem.length > testLength;});
     return result;
 }
 
@@ -98,13 +93,14 @@ function myTestResults(){
     console.log("Expected output of reverse() is yob  " + myFunctionTest('yodb', function () {
         return reverse('boy');
     }));
-    console.log("Expected output of findLongestWord() is yob  " + myFunctionTest('jakaata', function () {
+    console.log("Expected output of findLongestWord() is jakaata  " + myFunctionTest('jakaata', function () {
         return findLongestWord(['boy','King','jakaata','kiki']);
     }));
     
-    console.log("Expected output of filterLongWords() is yob  " + myFunctionTest(['jakaata','boy'], function () {
-        return filterLongWords(['boy','King','jakaata','kiki'],4);
+    console.log("Expected output of filterLongWords() is jakaata  " + myFunctionTest(['jakaata'], function () {
+        return filterLongWords(['boy','King','jakaata','kiki'],5);
     }));
+
 }
 
 myTestResults();
