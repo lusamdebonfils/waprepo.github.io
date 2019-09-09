@@ -1,78 +1,89 @@
 
 
-function myFunctionTest(expected, function2test) {
-    let result = function2test();
+      function myFunctionTest(expected, function2test) {
+          let result = function2test();
 
-    if(Array.isArray(expected)){
-        expected = expected.toString();
-    }
-    if(Array.isArray(result)){
-        result = result.toString();
-    }
-    if (expected === result) {
-        return "TEST SUCCEEDED";
-    } else {
-        return "TEST FAILED.  Expected " + expected + " found " + function2test();
-    }
-}
+          if(Array.isArray(expected)){
+              expected = expected.toString();
+          }
+          if(Array.isArray(result)){
+              result = result.toString();
+          }
+          if (expected === result) {
+              return "TEST SUCCEEDED";
+          } else {
+              return "TEST FAILED.  Expected " + expected + " found " + function2test();
+          }
+      }
 
-function max(x,y){
-    return x>=y?x:y;
-}
+      function max(x,y){
+          return x>=y?x:y;
+      }
 
-function maxOfThree(x,y,z){
-    let greaterOfTwo = x>=y?x:y;
-    return greaterOfTwo>=z?greaterOfTwo:z;
-}
+      function maxOfThree(x,y,z){
+          let greaterOfTwo = x>=y?x:y;
+          return greaterOfTwo>=z?greaterOfTwo:z;
+      }
 
-function isVowel(testChar){
-    let vowels = 'AEIOU';
-    let testingforCaps = vowels.toLowerCase();
-    return ((vowels.indexOf(testChar) > -1) ||  (testingforCaps.indexOf(testChar)>-1));
-}
+      function isVowel(testChar){
+          let vowels = 'AEIOU';
+          let testingforCaps = vowels.toLowerCase();
+          return ((vowels.indexOf(testChar) > -1) ||  (testingforCaps.indexOf(testChar)>-1));
+      }
 
-function sum(inputArray){
-    let total = 0;
-    for(let i = 0; i < inputArray.length; i++){
-        total = total + inputArray[i];
-    }
-    return total;
-}
+      function sum(inputArray){
+          // let total = 0;
+          // for(let i = 0; i < inputArray.length; i++){
+          //     total = total + inputArray[i];
+          // }
+          let reducer = (accumulator,currentVal)=>accumulator+currentVal;
+          let total = inputArray.reduce(reducer,0);
+          return total;
+      }
 
-function multiply(inputArray){
-    let total = 1;
-    for(let i = 0; i < inputArray.length; i++){
-        total = total * inputArray[i];
-    }
-    return total;
-}
+      function multiply(inputArray){
+          let reducer = (accumulator,currentVal)=>accumulator*currentVal;
+          let total = inputArray.reduce(reducer,1);
+          //let total
+          // for(let i = 0; i < inputArray.length; i++){
+          //     total = total * inputArray[i];
+          // }
+          return total;
+      }
 
-function reverse(word){
-    let len = word.length;
-    if(len === 1 || len === 0) return word;
-    let result = null;
-    for(let i = len-1; i>=0; i--){
-        result = result + word[i];
-    }
-    return result;
-}
+      function reverse(word){
+          let len = word.length;
+          if(len === 1 || len === 0) return word;
+          // let result = null;
+          // for(let i = len-1; i>=0; i--){
+          //     result = result + word[i];
+          // }
+          // let splitArray = word.split('');
+          // let finalResult = word.split('').map((element)->unshift(element));
+          // 
+          // return finalResult.join('');
+          return word.reverse();
+      }
 
-function findLongestWord(testArray){
-    let len = testArray.length;
-    let max = testArray[0];
-    for(let i = 1; i < len; i++){
-        if(testArray[i].length>max.length){
-            max = testArray[i];
-        }
-    }
-    return max;
-}
+      function findLongestWord(testArray){
+          let len = testArray.length;
+          let max = testArray[0];
+          for(let i = 1; i < len; i++){
+              if(testArray[i].length>max.length){
+                  max = testArray[i];
+              }
+          }
+          return max;
+      }
 
-function filterLongWords(testArray,testLength){
-    let result = testArray.filter(function(elem){
-        return elem.length > testLength;});
-    return result;
-}
+      function filterLongWords(testArray,testLength){
+          // let result = testArray.filter(function(elem){
+          //     return elem.length > testLength;});
+
+          let predicate = (element)=> element.length > testLength;
+          let result = testArray.filter(predicate);
+          return result;
+      }
      function multipliedBy10(a){
         const result =  a.map(function(elem) {
             return elem * 10;
@@ -117,7 +128,7 @@ function myTestResults(){
     console.log("Expected output of findLongestWord() is jakaata  " + myFunctionTest('jakaata', function () {
         return findLongestWord(['boy','King','jakaata','kiki']);
     }));
-    
+
     console.log("Expected output of filterLongWords() is jakaata  " + myFunctionTest(['jakaata'], function () {
         return filterLongWords(['boy','King','jakaata','kiki'],5);
     }));
@@ -133,9 +144,8 @@ function myTestResults(){
     console.log("Expected output of productOfArray() is 6 " + myFunctionTest(6, function () {
         return productOfArray([1,2,3]);
     }));
-    
-    
+
+
 }
 
 myTestResults();
-
