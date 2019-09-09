@@ -2,7 +2,8 @@ window.onload = function(){
 
   document.getElementById('start').onclick=startAnimation;
   document.getElementById('stop').onclick=stopAnimation;
-  document.getElementById('fontsize').onclick=increasingFont;
+  document.getElementById('fontsize').onchange=increasingFont;
+  document.getElementById('turbo').onchange=increasingFont;
 
 }
 
@@ -10,7 +11,7 @@ function startAnimation(){
   let animationChoice = document.getElementById('animation').value;
   let currentAnimation = document.getElementById('text-area');
   let animationTypeFrames = ANIMATIONS[animationChoice].split('=====\n');
-  setInterval(changingSpeedPerFrame(animationTypeFrames,5000),250);
+  setInterval(changingSpeedPerFrame(animationTypeFrames,250),10);
 
 }
 
@@ -25,11 +26,11 @@ function changingSpeedPerFrame(animationType,speed){
 }
 
 function stopAnimation(){
-
+  clearInterval(timer);
 }
 
 function increasingFont(textSize){
-  document.getElementById('text-area').style.fontSize = textSize + 'px';
+  let txtSize = document.getElementById('text-area').style.fontSize = textSize + 'px';
 }
 
 function tubroCharge(){
