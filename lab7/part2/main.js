@@ -54,15 +54,11 @@
       function reverse(word){
           let len = word.length;
           if(len === 1 || len === 0) return word;
-          // let result = null;
-          // for(let i = len-1; i>=0; i--){
-          //     result = result + word[i];
-          // }
-          // let splitArray = word.split('');
-          // let finalResult = word.split('').map((element)->unshift(element));
-          // 
-          // return finalResult.join('');
-          return word.reverse();
+          let result = null;
+          for(let i = len-1; i>=0; i--){
+              result = result + word[i];
+          }
+          return result;
       }
 
       function findLongestWord(testArray){
